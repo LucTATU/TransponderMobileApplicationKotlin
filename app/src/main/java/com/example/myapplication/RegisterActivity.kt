@@ -11,6 +11,7 @@ import android.os.Bundle
 import android.os.PersistableBundle
 import android.provider.MediaStore
 import android.util.Log
+import android.view.View
 import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
@@ -47,24 +48,12 @@ class RegisterActivity: AppCompatActivity(){
         if(requestCode == 0 && resultCode == Activity.RESULT_OK && data != null){
 
 
-            //getBitmap
+            //TODO try do use CircleImageView in order to get the profile picture in a circle
             selectedPhotoUri = data.data // location where the picture is stored on the device
-            val bitmap = MediaStore.Images.Media.getBitmap(this.contentResolver, selectedPhotoUri) //get access of the images selected
-            selectPhoto_imageView_register.setImageBitmap(bitmap) //to show the image as the picture profile
+            selectPhoto_imageView_register.setImageURI(selectedPhotoUri)
 
+            btn_selectPicture.visibility = View.INVISIBLE
 
-            //decodeBitmap
-            /*val image = data.data
-            val source = ImageDecoder.createSource(this.contentResolver, image!!)
-            val bitmap = ImageDecoder.decodeBitmap(source)
-            selectPhoto_imageView_register.setImageBitmap(bitmap)*/
-
-
-            btn_selectPicture.alpha = 0f //the btn is set on the background
-
-            //to put the image in the button
-            //val bitmapDrawable = BitmapDrawable(bitmap)
-            //btn_selectPicture.setBackgroundDrawable(bitmapDrawable)
         }
     }
 
