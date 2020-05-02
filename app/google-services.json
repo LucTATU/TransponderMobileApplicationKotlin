@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "957900548104",
+    "firebase_url": "https://kartingapp-9eeae.firebaseio.com",
+    "project_id": "kartingapp-9eeae",
+    "storage_bucket": "kartingapp-9eeae.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:957900548104:android:d121a47494e153881189bd",
+        "android_client_info": {
+          "package_name": "com.example.myapplication"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "957900548104-th2n0iomhao2rmb455unrfa35vci5vdb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCNuTc_53vq_-TrplYsTQSe7GP_H0P2G3I"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "957900548104-th2n0iomhao2rmb455unrfa35vci5vdb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
