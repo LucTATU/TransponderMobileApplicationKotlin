@@ -21,5 +21,10 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+        btn_bleConnexion_main.setOnClickListener{
+            val intent = Intent(this, BLEMainActivity::class.java)
+            startActivity(intent)
+        }
+
     }
 }

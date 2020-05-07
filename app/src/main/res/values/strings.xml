@@ -10,4 +10,9 @@
     <string name="password">Password</string>
     <string name="confirm">CONFIRM</string>
     <string name="selectPicture">SELECT PHOTO</string>
+    <string name="titleBLEPage">BLE - KARTS</string>
+    <string name="infoRechercheBLE">Rechercher un périphérique BLE</string>
+    <string name="Date">Selectionner une Date</string>
+    <string name="Time">Selectionner une heure</string>
+    <string name="consigneDateTime">Veuillez choisir la date et l\'heure de la session souhaité</string>
 </resources>
