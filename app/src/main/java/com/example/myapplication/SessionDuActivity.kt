@@ -59,7 +59,6 @@ class SessionDuActivity : AppCompatActivity() {
                 }
             })
     }
-
 }
 
 class Classement(val IDKART: Int, val POSITION: Int) {
