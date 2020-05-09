@@ -1,110 +1,76 @@
 package com.example.myapplication
 
 import android.app.DatePickerDialog
-import android.app.TimePickerDialog
+import android.content.Intent
 import android.os.Build
 import android.os.Bundle
 import android.util.Log
+import android.view.ViewGroup
+import android.widget.DatePicker
+import android.widget.TextView
+import android.widget.TimePicker
+import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
-import com.google.firebase.database.DataSnapshot
-import com.google.firebase.database.DatabaseError
-import com.google.firebase.database.FirebaseDatabase
-import com.google.firebase.database.ValueEventListener
-import com.xwray.groupie.GroupAdapter
-import com.xwray.groupie.Item
-import com.xwray.groupie.ViewHolder
 import kotlinx.android.synthetic.main.activity_sessionchoice.*
-import kotlinx.android.synthetic.main.sessionsrow.view.*
-import java.text.SimpleDateFormat
 import java.util.*
 
 class SessionChoiceActivity: AppCompatActivity() {
 
-//TODO verifyUserIsLoggedIn Kotlin Messenger 04
-
-    var dateFormat = SimpleDateFormat("dd MMM yyyy", Locale.FRANCE)
-    var timeFormat = SimpleDateFormat("HH:mm ", Locale.FRANCE)
 
     @RequiresApi(Build.VERSION_CODES.N)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         setContentView(R.layout.activity_sessionchoice);
-
-
-        btn_showDialogDate.setOnClickListener {
-            val chosenDate = Calendar.getInstance()
-            val datePicker = DatePickerDialog(
-                this,
-                DatePickerDialog.OnDateSetListener { view, year, month, dayOfMonth ->
-                    val selectedDate = Calendar.getInstance()
-                    selectedDate.set(Calendar.YEAR, year)
-                    selectedDate.set(Calendar.MONTH, month)
-                    selectedDate.set(Calendar.DAY_OF_MONTH, dayOfMonth)
-                    val date = dateFormat.format(selectedDate.time)
-                    btn_showDialogDate.text = dateFormat.format(selectedDate.time)
-                },
-                chosenDate.get(Calendar.YEAR),
-                chosenDate.get(Calendar.MONTH),
-                chosenDate.get(Calendar.DAY_OF_MONTH)
-            )
-            datePicker.show()
+        OnClickTime()
+        OnClickDate()
+        btn_confirm.setOnClickListener{
+            val intent = Intent(this, SessionSelectionActivity::class.java)
+            intent.putExtra("time",timeText.text)
+            intent.putExtra("date",dateText.text)
+            startActivity(intent)
         }
-
-
-        btn_showDialogTime.setOnClickListener {
-            val chosenTime = Calendar.getInstance()
-            val timePicker = TimePickerDialog(
-                this, TimePickerDialog.OnTimeSetListener { view, hourOfDay, minute ->
-                    val selectedTime = Calendar.getInstance()
-                    selectedTime.set(Calendar.HOUR_OF_DAY, hourOfDay)
-                    selectedTime.set(Calendar.MINUTE, minute)
-                    btn_showDialogTime.text = timeFormat.format(selectedTime.time)
-                },
-                chosenTime.get(Calendar.HOUR_OF_DAY), chosenTime.get(Calendar.MINUTE), true
-            )
-            timePicker.show()
-        }
-
-        fetchData()
     }
 
-    private fun fetchData() { //recupere toutes les données
-        val ref = FirebaseDatabase.getInstance().getReference("/sensor/dht")
-        ref.addListenerForSingleValueEvent(object : ValueEventListener{
 
-            override fun onDataChange(p0: DataSnapshot) {
-                val adapter = GroupAdapter<ViewHolder>()
-
-                p0.children.forEach {
-                    Log.d("NewMessages",it.toString())
-                    val data = it.getValue(DataTransponder::class.java)
-                    if(data != null){
-                        adapter.add(SessionItem(data))
-                    }
+    private fun OnClickTime() {
+        val textView = findViewById<TextView>(R.id.timeText)
+        val timePicker = findViewById<TimePicker>(R.id.time_Picker)
+        timePicker.setOnTimeChangedListener { _, hour, minute -> var hour = hour
+            var am_pm = ""
+            // AM_PM decider logic
+            when {hour == 0 -> { hour += 12
+                am_pm = "AM"
+            }
+                hour == 12 -> am_pm = "PM"
+                hour > 12 -> { hour -= 12
+                    am_pm = "PM"
                 }
-
-                recycleView_sessions.adapter = adapter
+                else -> am_pm = "AM"
             }
-            override fun onCancelled(p0: DatabaseError) {
-
+            if (textView != null) {
+                val hour = if (hour < 10) "0" + hour else hour
+                val min = if (minute < 10) "0" + minute else minute
+                // display format of time
+                val msg = "$hour : $min $am_pm"
+                textView.text = msg
+                //textView.visibility = ViewGroup.VISIBLE
             }
-        })
-    }
-}
-class DataTransponder(val x: Int, val y: Int, val z: Int) {
-    constructor() : this(0, 0 ,0 )
-
-}
-class SessionItem(val dataTransponder: DataTransponder): Item<ViewHolder>() {
-    override fun bind(viewHolder: ViewHolder, position: Int) {
-        viewHolder.itemView.textViewX.text = dataTransponder.x.toString()
-        viewHolder.itemView.textViewY.text = dataTransponder.y.toString()
-        viewHolder.itemView.textViewZ.text = dataTransponder.z.toString()
+        }
     }
 
-    override fun getLayout(): Int {
-        return R.layout.sessionsrow //comprends pas
+    private fun OnClickDate(){
+        val datePicker = findViewById<DatePicker>(R.id.date_Picker)
+        val today = Calendar.getInstance()
+        datePicker.init(today.get(Calendar.YEAR), today.get(Calendar.MONTH),
+            today.get(Calendar.DAY_OF_MONTH)
+
+        ) { view, year, month, day ->
+            val month = month + 1
+            val msg = "$day/$month/$year"
+            dateText.text = msg
+            //dateText.visibility = ViewGroup.VISIBLE
+        }
     }
 }

@@ -12,8 +12,7 @@
         android:gravity="center"
         android:text="@string/appName"
         android:textStyle="bold"
-        android:textSize="50sp"
-        android:layout_marginTop="10dp"/>
+        android:textSize="50sp"/>
 
     <ImageView
         android:layout_width="match_parent"
