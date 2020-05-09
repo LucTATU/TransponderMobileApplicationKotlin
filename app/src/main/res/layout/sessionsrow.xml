@@ -7,31 +7,77 @@
     android:layout_height="wrap_content">
 
     <TextView
-        android:id="@+id/textViewX"
+        android:id="@+id/textViewHeureSession"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="textViewHeureSession"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_sessionChosed"
+        app:layout_constraintEnd_toEndOf="@+id/textViewDateSession"
+        app:layout_constraintStart_toStartOf="@+id/textViewDateSession" />
+
+    <TextView
+        android:id="@+id/textViewDateSession"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginLeft="4dp"
+        android:text="textViewDateSession"
+        android:textSize="20sp"
+        app:layout_constraintStart_toEndOf="@+id/textView2"
+        app:layout_constraintTop_toTopOf="@+id/btn_sessionChosed"
+        tools:ignore="MissingConstraints" />
+
+    <Button
+        android:id="@+id/btn_sessionChosed"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:text="TextView"
-        app:layout_constraintEnd_toEndOf="@+id/textViewY"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/textViewY"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TextView"
-        app:layout_constraintBottom_toTopOf="@+id/textViewZ"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewX" />
-
-    <TextView
-        android:id="@+id/textViewZ"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
-        android:text="TextView"
+        android:text="@string/choisir"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/textViewX" />
+        app:layout_constraintEnd_toStartOf="@+id/textViewIDSession"
+        app:layout_constraintStart_toEndOf="@+id/textViewDateSession"
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="@drawable/rounded_button" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginLeft="4dp"
+        android:text="Session du :"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/textViewDateSession"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/textViewDateSession"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="à :"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/textViewHeureSession"
+        app:layout_constraintEnd_toEndOf="@+id/textView2"
+        app:layout_constraintHorizontal_bias="0.491"
+        app:layout_constraintStart_toStartOf="@+id/textView2" />
+
+    <TextView
+        android:id="@+id/textViewIDSession"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="4dp"
+        android:layout_marginRight="4dp"
+        android:text="ID"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_sessionChosed"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/btn_sessionChosed" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

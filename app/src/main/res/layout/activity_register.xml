@@ -13,7 +13,6 @@
         android:text="@string/register"
         android:textStyle="bold"
         android:textSize="50sp"
-        android:layout_marginTop="20dp"
         android:layout_marginBottom="20dp"/>
 
     <FrameLayout
@@ -25,7 +24,7 @@
             android:id="@+id/btn_selectPicture"
             android:layout_width="150dp"
             android:layout_height="150dp"
-            android:background="@drawable/rounded_select_photo"
+            android:background="@android:color/white"
             android:text="@string/selectPicture"
             android:visibility="visible" />
 

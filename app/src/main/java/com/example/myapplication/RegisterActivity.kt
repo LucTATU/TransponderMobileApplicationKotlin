@@ -18,6 +18,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.storage.FirebaseStorage
+import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_register.*
 import java.util.*
 
@@ -51,7 +52,6 @@ class RegisterActivity: AppCompatActivity(){
             //TODO try do use CircleImageView in order to get the profile picture in a circle
             selectedPhotoUri = data.data // location where the picture is stored on the device
             selectPhoto_imageView_register.setImageURI(selectedPhotoUri)
-
             btn_selectPicture.visibility = View.INVISIBLE
 
         }
