@@ -37,23 +37,22 @@ class SessionDuActivity : AppCompatActivity() {
     }
 
     private fun querySingleDataKart() {
+        val sessionId = textViewIDSessionRecup.text.toString()
         FirebaseDatabase.getInstance().reference
-            .child("/karting/SESSIONS")
-            .orderByChild("IDSESSION").equalTo(textViewIDSessionRecup.text.toString())
+            .child("/karting/SESSIONS/$sessionId")
+            .orderByChild("POSITION") //inutile ...
             .addListenerForSingleValueEvent(object : ValueEventListener {
                 override fun onCancelled(p0: DatabaseError) {
                 }
 
                 override fun onDataChange(p0: DataSnapshot) {
-                    val p1 = p0.child("CLASSEMENT")
-                    Log.d("trouve",p1.toString())
-                    p1.children.forEach {// ???????????????
-                        Log.d("trouve","1.5")
+                    val p1 = p0.child("/CLASSEMENT")
+
+                    p1.children.forEach {
                         Log.d("trouve",it.toString())
                         val data = it.getValue(Classement::class.java)
                         if (data != null) {
                             adapter.add(KartItemID(data))
-                            Log.d("trouve","2")
                         }
                     }
                 }
@@ -61,13 +60,12 @@ class SessionDuActivity : AppCompatActivity() {
     }
 }
 
-class Classement(val IDKART: Int, val POSITION: Int) {
-    constructor() : this(0, 0)
+class Classement(val IDKART: Int,val NAMEKART: String, val POSITION: Int) {
+    constructor() : this(0,"",0)
 }
 
 class KartItemID(val classement: Classement): Item<ViewHolder>() {
     override fun bind(viewHolder: ViewHolder, position: Int) {
-        Log.d("trouve","3")
         viewHolder.itemView.textViewIdKart.text = classement.IDKART.toString()
         viewHolder.itemView.btn_positionClassement.text = classement.POSITION.toString()
     }

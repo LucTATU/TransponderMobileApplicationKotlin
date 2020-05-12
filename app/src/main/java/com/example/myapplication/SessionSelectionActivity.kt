@@ -55,7 +55,6 @@ class SessionSelectionActivity : AppCompatActivity() {
                 }
 
                 override fun onDataChange(p0: DataSnapshot) {
-
                     p0.children.forEach {
                         Log.d("NewMessages", it.toString())
                         val data = it.getValue(IDSession::class.java)
