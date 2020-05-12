@@ -11,30 +11,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:text="@string/sessionPage"
+        android:text="@string/sessions_page"
         android:textSize="50sp"
         android:textStyle="bold"
         app:layout_constraintTop_toTopOf="parent"
         tools:layout_editor_absoluteX="0dp" />
-
-    <TextView
-        android:id="@+id/dateTextRecup"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="84dp"
-        android:layout_marginLeft="84dp"
-        android:text="timeTextRecup"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView4" />
-
-    <TextView
-        android:id="@+id/timeTextRecup"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="dateTextRecup"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/dateTextRecup"
-        app:layout_constraintTop_toTopOf="@+id/dateTextRecup" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycleView_sessions"
@@ -45,6 +26,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/timeTextRecup"
+        app:layout_constraintTop_toBottomOf="@+id/textView4"
         app:layout_constraintVertical_bias="0.0" />
 </androidx.constraintlayout.widget.ConstraintLayout>

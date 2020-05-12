@@ -14,11 +14,11 @@
     <string name="infoRechercheBLE">Rechercher un périphérique BLE</string>
     <string name="Date">Selectionner une Date</string>
     <string name="Time">Selectionner une heure</string>
-    <string name="consigneDateTime">Veuillez choisir la date et l\'heure de la session souhaité</string>
+    <string name="chose_date">Veuillez choisir la date de la session recherché</string>
     <string name="sessionDu">SESSION DU :</string>
     <string name="textviewidsessionchosen">ID</string>
     <string name="classement">CLASSEMENT :</string>
-    <string name="sessionPage">SESSIONS</string>
+    <string name="sessions_page">SESSIONS</string>
     <string name="choisir">CHOISIR</string>
     <string name="max_speed">Max Speed :</string>
     <string name="speeds">Speeds :</string>

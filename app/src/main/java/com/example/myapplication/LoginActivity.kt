@@ -2,13 +2,10 @@ package com.example.myapplication
 
 import android.content.Intent
 import android.os.Bundle
-import android.os.PersistableBundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.google.firebase.analytics.FirebaseAnalytics
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_login.*
-import kotlinx.android.synthetic.main.activity_main.*
 
 class LoginActivity: AppCompatActivity(){
 
@@ -37,7 +34,7 @@ class LoginActivity: AppCompatActivity(){
                 if (!it.isSuccessful) return@addOnCompleteListener
 
                 //else if successful
-                val intent = Intent(this, SessionChoiceActivity::class.java)
+                val intent = Intent(this, ChoiceDaySessionActivity::class.java)
                 startActivity(intent)
                 finish()
             }

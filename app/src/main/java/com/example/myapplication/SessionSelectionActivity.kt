@@ -7,16 +7,13 @@ import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.FirebaseDatabase
 import kotlinx.android.synthetic.main.activity_session_selection.*
 import android.util.Log
-import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.DividerItemDecoration
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.ValueEventListener
 import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.Item
 import com.xwray.groupie.ViewHolder
-import kotlinx.android.synthetic.main.sessionsrow.*
 import kotlinx.android.synthetic.main.sessionsrow.view.*
-import kotlinx.android.synthetic.main.sessionsrow.view.btn_sessionChosed
 
 class SessionSelectionActivity : AppCompatActivity() {
 
@@ -29,8 +26,6 @@ class SessionSelectionActivity : AppCompatActivity() {
         recycleView_sessions.adapter = adapter
         recycleView_sessions.addItemDecoration(DividerItemDecoration(this,DividerItemDecoration.VERTICAL))
 
-        timeTextRecup.text = intent.getStringExtra("time")
-        dateTextRecup.text = intent.getStringExtra("date")
 
         //adapter.add(SessionItemID(IDSession("test","TEST",4)))
         querySingleDataDate()
@@ -47,9 +42,10 @@ class SessionSelectionActivity : AppCompatActivity() {
     }
 
     private fun querySingleDataDate() {
+        val date = intent.getStringExtra("date")
         FirebaseDatabase.getInstance().reference
             .child("/karting/SESSIONS")
-            .orderByChild("DATESESSION").equalTo(dateTextRecup.text.toString())
+            .orderByChild("DATESESSION").equalTo(date.toString())
             .addListenerForSingleValueEvent(object : ValueEventListener {
                 override fun onCancelled(p0: DatabaseError) {
                 }

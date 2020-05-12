@@ -20,7 +20,7 @@
         <activity android:name=".InfosKartActivity"></activity>
         <activity android:name=".SessionDuActivity" />
         <activity android:name=".SessionSelectionActivity" />
-        <activity android:name=".SessionChoiceActivity">
+        <activity android:name=".ChoiceDaySessionActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

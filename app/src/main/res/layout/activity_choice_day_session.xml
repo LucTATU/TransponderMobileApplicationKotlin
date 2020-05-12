@@ -8,7 +8,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:text="@string/sessionPage"
+        android:text="@string/sessions_page"
         android:textSize="50sp"
         android:textStyle="bold" />
 
@@ -18,7 +18,7 @@
         android:layout_height="wrap_content"
         android:textSize="20sp"
         android:textAlignment="center"
-        android:text="@string/consigneDateTime"
+        android:text="@string/chose_date"
         android:gravity="center_horizontal" />
 
     <DatePicker
@@ -27,12 +27,6 @@
         android:layout_height="wrap_content"
         android:calendarViewShown="false"
         android:datePickerMode="spinner" />
-
-    <TimePicker
-        android:id="@+id/time_Picker"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:timePickerMode="spinner"/>
 
     <Button
         android:id="@+id/btn_confirm"
@@ -43,12 +37,6 @@
 
     <TextView
         android:id="@+id/dateText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:visibility="invisible"/>
-
-    <TextView
-        android:id="@+id/timeText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:visibility="invisible"/>
