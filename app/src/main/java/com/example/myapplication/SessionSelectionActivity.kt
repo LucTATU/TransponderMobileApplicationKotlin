@@ -39,7 +39,7 @@ class SessionSelectionActivity : AppCompatActivity() {
         adapter.setOnItemClickListener { item, view ->
             val id = item as SessionItemID
             val intent = Intent(this, SessionDuActivity::class.java)
-            intent.putExtra("ID", id.idSession.IDSESSION.toString())
+            intent.putExtra("ID_S", id.idSession.IDSESSION.toString())
             intent.putExtra("DATE", id.idSession.DATESESSION.toString())
             intent.putExtra("TIME", id.idSession.HEURESESSION.toString())
             startActivity(intent)
