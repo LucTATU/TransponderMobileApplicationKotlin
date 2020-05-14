@@ -12,7 +12,7 @@ import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.Item
 import com.xwray.groupie.ViewHolder
 import kotlinx.android.synthetic.main.activity_session_du.*
-import kotlinx.android.synthetic.main.classementrow.view.*
+import kotlinx.android.synthetic.main.classement_row.view.*
 
 class SessionDuActivity : AppCompatActivity() {
     val adapter = GroupAdapter<ViewHolder>()
@@ -81,6 +81,6 @@ class KartItemID(val classement: Classement): Item<ViewHolder>() {
     }
 
     override fun getLayout(): Int {
-        return R.layout.classementrow
+        return R.layout.classement_row
     }
 }

@@ -13,7 +13,7 @@ import com.google.firebase.database.ValueEventListener
 import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.Item
 import com.xwray.groupie.ViewHolder
-import kotlinx.android.synthetic.main.sessionsrow.view.*
+import kotlinx.android.synthetic.main.sessions_row.view.*
 
 class SessionSelectionActivity : AppCompatActivity() {
 
@@ -75,7 +75,7 @@ class SessionItemID(val idSession: IDSession): Item<ViewHolder>() {
     }
 
     override fun getLayout(): Int {
-        return R.layout.sessionsrow
+        return R.layout.sessions_row
     }
 }
 

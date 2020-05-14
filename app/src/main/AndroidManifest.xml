@@ -17,16 +17,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".InfosKartActivity"></activity>
+        <activity android:name=".BLEDeviceActivity" />
+        <activity android:name=".BLEScanActivity" />
+        <activity android:name=".InfosKartActivity" />
         <activity android:name=".SessionDuActivity" />
         <activity android:name=".SessionSelectionActivity" />
-        <activity android:name=".ChoiceDaySessionActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+        <activity android:name=".ChoiceDaySessionActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -34,7 +30,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".BLEMainActivity" />
         <activity android:name=".LoginActivity" />
         <activity android:name=".RegisterActivity" />
     </application>

@@ -22,7 +22,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         btn_bleConnexion_main.setOnClickListener{
-            val intent = Intent(this, BLEMainActivity::class.java)
+            val intent = Intent(this, BLEScanActivity::class.java)
             startActivity(intent)
         }
 

@@ -11,7 +11,9 @@
     <string name="confirm">CONFIRM</string>
     <string name="selectPicture">SELECT PHOTO</string>
     <string name="titleBLEPage">BLE - KARTS</string>
-    <string name="infoRechercheBLE">Rechercher un périphérique BLE</string>
+    <string name="search_BLE_devices">Rechercher un périphérique BLE</string>
+    <string name="scanning">Scan en cours ...</string>
+    <string name="unknownDevice">Nom Inconnu</string>
     <string name="Date">Selectionner une Date</string>
     <string name="Time">Selectionner une heure</string>
     <string name="chose_date">Veuillez choisir la date de la session recherché</string>
@@ -29,4 +31,23 @@
     <string name="best_time_lap">Best Time Lap :</string>
     <string name="avg_time_lap">Avg Time Lap :</string>
     <string name="worst_time_lap">Worst Time Lap :</string>
+    <string name="device_no_ble_compatible">DEVICE NO BLE COMPATIBLE</string>
+    <string name="bleName">BLE Name</string>
+    <string name="bleAddress">Address BLE</string>
+    <string name="ble_scan_title_play">Start scan</string>
+    <string name="ble_scan_title_pause">Scan BLE in progress …</string>
+    <string name="ble_scan_error">Error during BLE scan</string>
+    <string name="ble_scan_missing">Your smartphone is not BLE compatible</string>
+    <string name="ble_scan_default_name">Unknown device</string>
+    <string name="ble_device_status">Status : %1$s</string>
+    <string name="ble_device_status_connecting">Connecting</string>
+    <string name="ble_device_status_connected">Connected</string>
+    <string name="ble_device_status_disconnected">Disconnected</string>
+    <string name="ble_device_status_disconnecting">Disconnecting</string>
+    <string name="ble_device_characteristic_read">Read</string>
+    <string name="ble_device_characteristic_write">Write</string>
+    <string name="ble_device_characteristic_notify">Notifier</string>
+    <string name="ble_device_write_characteristic_title">Write the value</string>
+    <string name="ble_device_write_characteristic_confirm">Confirm</string>
+    <string name="ble_device_write_characteristic_cancel">Cancel</string>
 </resources>
