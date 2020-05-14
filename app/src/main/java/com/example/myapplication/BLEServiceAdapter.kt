@@ -54,36 +54,23 @@ class BLEServiceAdapter(
                 .inflate(R.layout.activity_b_l_e_device_service_cell, parent, false)
         )
 
-    override fun onCreateChildViewHolder(
-        parent: ViewGroup,
-        viewType: Int
-    ): CharacteristicViewHolder =
-        CharacteristicViewHolder(
-            LayoutInflater.from(parent.context)
+    override fun onCreateChildViewHolder(parent: ViewGroup, viewType: Int):
+            CharacteristicViewHolder = CharacteristicViewHolder(LayoutInflater.from(parent.context)
                 .inflate(R.layout.activity_b_l_e_device_characteristic_cell, parent, false)
         )
 
-    override fun onBindGroupViewHolder(
-        holder: ServiceViewHolder,
-        flatPosition: Int,
-        group: ExpandableGroup<*>
-    ) {
-        val title =
-            BLEUUIDAttributes.getBLEAttributeFromUUID(group.title).title
+    override fun onBindGroupViewHolder(holder: ServiceViewHolder, flatPosition: Int, group: ExpandableGroup<*>)
+    {
+        val title = BLEUUIDAttributes.getBLEAttributeFromUUID(group.title).title
         holder.serviceName.text = title
         holder.serviceUuid.text = group.title
     }
 
     @RequiresApi(Build.VERSION_CODES.JELLY_BEAN_MR2)
-    override fun onBindChildViewHolder(
-        holder: CharacteristicViewHolder,
-        flatPosition: Int,
-        group: ExpandableGroup<*>,
-        childIndex: Int
-    ) {
+    override fun onBindChildViewHolder(holder: CharacteristicViewHolder, flatPosition: Int, group: ExpandableGroup<*>, childIndex: Int)
+    {
         val characteristic = (group.items[childIndex] as BluetoothGattCharacteristic)
-        val title =
-            BLEUUIDAttributes.getBLEAttributeFromUUID(characteristic.uuid.toString()).title
+        val title = BLEUUIDAttributes.getBLEAttributeFromUUID(characteristic.uuid.toString()).title
 
         val uuidMessage = "UUID : ${characteristic.uuid}"
         holder.characteristicUuid.text = uuidMessage
@@ -91,30 +78,16 @@ class BLEServiceAdapter(
         holder.characteristicName.text = title
         val properties = arrayListOf<String>()
 
-        addPropertyFromCharacteristic(
-            characteristic,
-            properties,
-            "Lecture",
-            BluetoothGattCharacteristic.PROPERTY_READ,
-            holder.characteristicReadAction,
-            readCharacteristicCallback
-        )
+        addPropertyFromCharacteristic(characteristic, properties,"Lecture",
+            BluetoothGattCharacteristic.PROPERTY_READ, holder.characteristicReadAction,
+            readCharacteristicCallback)
 
-        addPropertyFromCharacteristic(
-            characteristic,
-            properties,
-            "Ecrire",
+        addPropertyFromCharacteristic(characteristic, properties,"Ecrire",
             (BluetoothGattCharacteristic.PROPERTY_WRITE or BluetoothGattCharacteristic.PROPERTY_WRITE_NO_RESPONSE),
-            holder.characteristicWriteAction,
-            writeCharacteristicCallback
-        )
+            holder.characteristicWriteAction, writeCharacteristicCallback)
 
-        addPropertyNotificationFromCharacteristic(
-            characteristic,
-            properties,
-            holder.characteristicNotifyAction,
-            notifyCharacteristicCallback
-        )
+        addPropertyNotificationFromCharacteristic(characteristic, properties, holder.characteristicNotifyAction,
+            notifyCharacteristicCallback)
 
         val proprietiesMessage = "Proprietés : ${properties.joinToString()}"
         holder.characteristicProperties.text = proprietiesMessage
@@ -133,9 +106,10 @@ class BLEServiceAdapter(
         propertyName: String,
         propertyType: Int,
         propertyAction: Button,
-        propertyCallBack: (BluetoothGattCharacteristic) -> Unit
-    ) {
-        if ((characteristic.properties and propertyType) != 0) {
+        propertyCallBack: (BluetoothGattCharacteristic) -> Unit)
+    {
+        if ((characteristic.properties and propertyType) != 0)
+        {
             properties.add(propertyName)
             propertyAction.isEnabled = true
             propertyAction.alpha = 1f

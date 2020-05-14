@@ -80,6 +80,8 @@ class RegisterActivity: AppCompatActivity(){
                 Toast.makeText(this, "Successfully user created", Toast.LENGTH_LONG).show()
                 uploadImageFirebaseStorage()
                 finish()
+                val intent = Intent(this, ChoiceDaySessionActivity::class.java)
+                startActivity(intent)
             }
             .addOnFailureListener {
                 Toast.makeText(this, "Failed to create user: ${it.message}", Toast.LENGTH_LONG).show()

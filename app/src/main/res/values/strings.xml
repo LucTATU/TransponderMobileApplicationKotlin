@@ -50,4 +50,5 @@
     <string name="ble_device_write_characteristic_title">Write the value</string>
     <string name="ble_device_write_characteristic_confirm">Confirm</string>
     <string name="ble_device_write_characteristic_cancel">Cancel</string>
+    <string name="logout">LOGOUT</string>
 </resources>
