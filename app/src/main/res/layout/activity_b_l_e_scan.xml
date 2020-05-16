@@ -11,7 +11,7 @@
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
-        android:paddingTop="12dp"
+        android:paddingTop="32dp"
         android:paddingBottom="12dp"
         android:text="@string/ble_scan_title_play"
         android:textAlignment="center"

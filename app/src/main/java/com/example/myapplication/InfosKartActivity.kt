@@ -18,11 +18,14 @@ class InfosKartActivity : AppCompatActivity() {
         textViewDateSessionChoisi.text = intent.getStringExtra("DATE")
         textViewHeureSessionChoisi.text = intent.getStringExtra("TIME")
         textViewIdKart.text = intent.getStringExtra("ID_K")
+        btn_positionClassement.text = intent.getStringExtra("POSITION")
 
         queryDatasKart()
     }
 
     private fun queryDatasKart(){
+        val dialog = ProgressDialogUtil.setProgressDialog(this, "Loading...")
+        dialog.show()
         val idSession = intent.getStringExtra("ID_S")
         val idKart = textViewIdKart.text.toString()
         FirebaseDatabase.getInstance().reference
@@ -32,6 +35,7 @@ class InfosKartActivity : AppCompatActivity() {
                 }
 
                 override fun onDataChange(p0: DataSnapshot) {
+                    dialog.dismiss()
                     val p1 = p0.child("/Vitesses")
                     val p2 = p0.child("/Time")
 

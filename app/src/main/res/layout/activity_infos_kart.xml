@@ -15,7 +15,19 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="32dp"/>
+
+    <TextView
+        android:id="@+id/textViewIDSessionRecup"
+        android:layout_width="77dp"
+        android:layout_height="35dp"
+        android:text="@string/textviewidsessionchosen"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView8"
+        app:layout_constraintTop_toTopOf="@+id/textView8"
+        tools:ignore="MissingConstraints" />
 
     <LinearLayout
         android:id="@+id/linearLayout"
@@ -33,7 +45,8 @@
             android:layout_gravity="center"
             android:layout_weight="2"
             android:text="DATE"
-            android:textSize="40sp"
+            android:gravity="center"
+            android:textSize="30sp"
             android:textStyle="bold" />
 
         <TextView
@@ -41,6 +54,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:gravity="center"
             android:layout_weight="1"
             android:text="À"
             android:textSize="40sp"
@@ -51,16 +65,17 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:gravity="center"
             android:layout_weight="2"
             android:text="HEURE"
-            android:textSize="40sp"
+            android:textSize="30sp"
             android:textStyle="bold" />
     </LinearLayout>
 
     <Button
         android:id="@+id/btn_positionClassement"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
         android:layout_marginTop="16dp"
@@ -73,8 +88,7 @@
         android:id="@+id/textViewIdKart"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="32dp"
-        android:layout_marginRight="32dp"
+        android:layout_marginEnd="100dp"
         android:text="textViewIdKart"
         app:layout_constraintBottom_toBottomOf="@+id/btn_positionClassement"
         app:layout_constraintEnd_toEndOf="parent"
@@ -88,6 +102,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
         android:text="Kart ID :"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/textViewIdKart"
         app:layout_constraintEnd_toStartOf="@+id/textViewIdKart"
         app:layout_constraintHorizontal_bias="0.26"
@@ -99,6 +114,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
+        android:layout_marginLeft="16dp"
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -110,7 +126,8 @@
             android:layout_weight="1"
             android:text="@string/speeds"
             android:layout_marginBottom="10dp"
-            android:layout_marginTop="10dp"/>
+            android:layout_marginTop="10dp"
+            android:textStyle="bold"/>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -175,7 +192,8 @@
             android:layout_weight="1"
             android:text="@string/times"
             android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"/>
+            android:layout_marginBottom="10dp"
+            android:textStyle="bold"/>
 
         <LinearLayout
             android:layout_width="match_parent"

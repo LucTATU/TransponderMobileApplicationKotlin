@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">My Application</string>
+    <string name="app_name">Karting App</string>
     <string name="appName">KARTING APP</string>
     <string name="register">S\'INSCRIRE</string>
     <string name="login">SE CONNECTER</string>
@@ -50,4 +50,7 @@
     <string name="ble_device_write_characteristic_title">Write the value</string>
     <string name="ble_device_write_characteristic_confirm">Confirm</string>
     <string name="ble_device_write_characteristic_cancel">Cancel</string>
+    <string name="logout">LOGOUT</string>
+    <string name="data_error">Il n\'y a pas eu de sessions au jour sélectionné</string>
+    <string name="request_to_user">Veuillez sélectionner un autre jour</string>
 </resources>

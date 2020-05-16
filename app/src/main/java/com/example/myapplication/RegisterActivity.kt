@@ -47,13 +47,12 @@ class RegisterActivity: AppCompatActivity(){
         super.onActivityResult(requestCode, resultCode, data)
 
         if(requestCode == 0 && resultCode == Activity.RESULT_OK && data != null){
-
-
-            //TODO try do use CircleImageView in order to get the profile picture in a circle
             selectedPhotoUri = data.data // location where the picture is stored on the device
-            selectPhoto_imageView_register.setImageURI(selectedPhotoUri)
+            Picasso.get()
+                .load(selectedPhotoUri)
+                .fit().centerInside()
+                .into(selectPhoto_imageView_register)
             btn_selectPicture.visibility = View.INVISIBLE
-
         }
     }
 
@@ -80,6 +79,8 @@ class RegisterActivity: AppCompatActivity(){
                 Toast.makeText(this, "Successfully user created", Toast.LENGTH_LONG).show()
                 uploadImageFirebaseStorage()
                 finish()
+                val intent = Intent(this, ChoiceDaySessionActivity::class.java)
+                startActivity(intent)
             }
             .addOnFailureListener {
                 Toast.makeText(this, "Failed to create user: ${it.message}", Toast.LENGTH_LONG).show()

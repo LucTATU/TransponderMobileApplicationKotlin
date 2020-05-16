@@ -11,7 +11,7 @@ import com.google.firebase.database.ValueEventListener
 import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.Item
 import com.xwray.groupie.ViewHolder
-import kotlinx.android.synthetic.main.activity_session_du.*
+import kotlinx.android.synthetic.main.activity_classement.*
 import kotlinx.android.synthetic.main.classement_row.view.*
 
 class SessionDuActivity : AppCompatActivity() {
@@ -19,13 +19,12 @@ class SessionDuActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_session_du)
+        setContentView(R.layout.activity_classement)
 
         textViewIDSessionRecup.text = intent.getStringExtra("ID_S")
         textViewDateSessionChoisi.text = intent.getStringExtra("DATE")
         textViewHeureSessionChoisi.text = intent.getStringExtra("TIME")
 
-        //recycleView_sessions.addItemDecoration(DividerItemDecoration(this,DividerItemDecoration.VERTICAL))
 
         recyclerView_classement.adapter = adapter
 
@@ -41,23 +40,25 @@ class SessionDuActivity : AppCompatActivity() {
             intent.putExtra("ID_S", textViewIDSessionRecup.text.toString())
             intent.putExtra("DATE", textViewDateSessionChoisi.text.toString())
             intent.putExtra("TIME", textViewHeureSessionChoisi.text.toString())
+            intent.putExtra("POSITION", id.classement.POSITION.toString())
             startActivity(intent)
         }
 
     }
 
-    private fun querySingleDataKart() { //TODO afficher les karts en fct de leur classement
+    private fun querySingleDataKart() {
+        val dialog = ProgressDialogUtil.setProgressDialog(this, "Loading...")
+        dialog.show()
         val sessionId = textViewIDSessionRecup.text.toString()
         FirebaseDatabase.getInstance().reference
             .child("/karting/SESSIONS/$sessionId")
-            .orderByChild("POSITION") //inutile ...
             .addListenerForSingleValueEvent(object : ValueEventListener {
                 override fun onCancelled(p0: DatabaseError) {
                 }
 
                 override fun onDataChange(p0: DataSnapshot) {
+                    dialog.dismiss()
                     val p1 = p0.child("/CLASSEMENT")
-
                     p1.children.forEach {
                         Log.d("trouve",it.toString())
                         val data = it.getValue(Classement::class.java)

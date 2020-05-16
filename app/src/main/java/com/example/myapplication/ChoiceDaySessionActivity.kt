@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Build
 import android.os.Bundle
 import android.widget.DatePicker
+import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_choice_day_session.*
@@ -23,6 +24,13 @@ class ChoiceDaySessionActivity: AppCompatActivity() {
         btn_confirm.setOnClickListener{
             val intent = Intent(this, SessionSelectionActivity::class.java)
             intent.putExtra("date", dateText.text)
+            startActivity(intent)
+        }
+
+        btn_logout.setOnClickListener {
+            Toast.makeText(applicationContext, "Déconnecté", Toast.LENGTH_SHORT).show()
+            this.finish()
+            val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
         }
     }

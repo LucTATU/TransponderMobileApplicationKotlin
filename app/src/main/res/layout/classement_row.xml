@@ -8,12 +8,14 @@
 
     <Button
         android:id="@+id/btn_positionClassement"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
         android:background="@drawable/rounded_button"
         android:text="P"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -21,8 +23,7 @@
         android:id="@+id/textViewIdKart"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="32dp"
-        android:layout_marginRight="32dp"
+        android:layout_marginEnd="100dp"
         android:text="textViewIdKart"
         app:layout_constraintBottom_toBottomOf="@+id/btn_positionClassement"
         app:layout_constraintEnd_toEndOf="parent"
@@ -36,6 +37,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
         android:text="Kart ID :"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/textViewIdKart"
         app:layout_constraintEnd_toStartOf="@+id/textViewIdKart"
         app:layout_constraintHorizontal_bias="0.26"

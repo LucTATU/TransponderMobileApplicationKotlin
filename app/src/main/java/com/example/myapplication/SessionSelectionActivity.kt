@@ -3,17 +3,22 @@ package com.example.myapplication
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Handler
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.FirebaseDatabase
 import kotlinx.android.synthetic.main.activity_session_selection.*
 import android.util.Log
+import android.view.View
+import android.widget.Toast
 import androidx.recyclerview.widget.DividerItemDecoration
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.ValueEventListener
 import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.Item
 import com.xwray.groupie.ViewHolder
+import kotlinx.android.synthetic.main.activity_choice_day_session.*
 import kotlinx.android.synthetic.main.sessions_row.view.*
+import kotlin.concurrent.timerTask
 
 class SessionSelectionActivity : AppCompatActivity() {
 
@@ -27,8 +32,8 @@ class SessionSelectionActivity : AppCompatActivity() {
         recycleView_sessions.addItemDecoration(DividerItemDecoration(this,DividerItemDecoration.VERTICAL))
 
 
-        //adapter.add(SessionItemID(IDSession("test","TEST",4)))
         querySingleDataDate()
+
 
         // set item click listener on the adapter
         adapter.setOnItemClickListener { item, view ->
@@ -41,7 +46,11 @@ class SessionSelectionActivity : AppCompatActivity() {
         }
     }
 
+    //TODO error message + tell which sessions are close to the looking session
     private fun querySingleDataDate() {
+        val dialog = ProgressDialogUtil.setProgressDialog(this, "Loading...")
+        dialog.show()
+
         val date = intent.getStringExtra("date")
         FirebaseDatabase.getInstance().reference
             .child("/karting/SESSIONS")
@@ -51,6 +60,7 @@ class SessionSelectionActivity : AppCompatActivity() {
                 }
 
                 override fun onDataChange(p0: DataSnapshot) {
+                    dialog.dismiss()
                     p0.children.forEach {
                         Log.d("NewMessages", it.toString())
                         val data = it.getValue(IDSession::class.java)
@@ -58,6 +68,7 @@ class SessionSelectionActivity : AppCompatActivity() {
                             adapter.add(SessionItemID(data))
                         }
                     }
+
                 }
             })
     }
