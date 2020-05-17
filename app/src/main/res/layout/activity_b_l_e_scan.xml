@@ -7,11 +7,25 @@
     tools:context=".BLEScanActivity">
 
     <TextView
+        android:id="@+id/textViewTitlePage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/bleConnexion"
+        android:textSize="50sp"
+        android:textStyle="bold"
+        android:layout_marginTop="32dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
         android:id="@+id/scanTitle"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:paddingTop="32dp"
+        android:layout_marginTop="16dp"
+        android:gravity="center_horizontal"
+        android:paddingTop="12dp"
         android:paddingBottom="12dp"
         android:text="@string/ble_scan_title_play"
         android:textAlignment="center"
@@ -19,26 +33,7 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:gravity="center_horizontal" />
-
-    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-        android:id="@+id/itemsswipetorefresh"
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/divider">
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/bleDevicesList"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            tools:listitem="@tools:sample/cities" />
-
-    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+        app:layout_constraintTop_toBottomOf="@+id/textViewTitlePage" />
 
     <ImageView
         android:id="@+id/playPauseAction"
@@ -74,6 +69,24 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/playPauseAction" />
 
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/itemsswipetorefresh"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/divider">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/bleDevicesList"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            tools:listitem="@tools:sample/cities" />
+
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
     <TextView
         android:id="@+id/bleMissing"
         android:layout_width="wrap_content"
@@ -90,4 +103,5 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:gravity="center_horizontal" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -4,6 +4,7 @@ import android.bluetooth.*
 import android.os.Build
 import android.os.Bundle
 import android.text.InputType
+import android.util.Log
 import android.view.View
 import android.widget.EditText
 import android.widget.LinearLayout
@@ -13,14 +14,19 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.activity_b_l_e_device.*
+import kotlinx.android.synthetic.main.activity_b_l_e_device_service_cell.*
 import java.util.Timer
 import java.util.TimerTask
+
 
 class BLEDeviceActivity : AppCompatActivity() {
 
     private var bluetoothGatt: BluetoothGatt? = null
     private lateinit var adapter: BLEServiceAdapter
     private var timer: Timer? = null
+
+
+
 
     @RequiresApi(Build.VERSION_CODES.JELLY_BEAN_MR2)
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -86,13 +92,24 @@ class BLEDeviceActivity : AppCompatActivity() {
 
     @RequiresApi(Build.VERSION_CODES.JELLY_BEAN_MR2)
     private fun onServicesDiscovered(gatt: BluetoothGatt?) {
+
         gatt?.services?.let {
-            runOnUiThread {
+            runOnUiThread{
+                val i = it
+                Log.d("MUTUABLELIST1", it.toString())
+                it.forEach {
+                    val UUID = it.uuid.toString()
+                    val UuidWanted = "00001800-0000-1000-8000-00805f9b34fb"
+                    if (UuidWanted != UUID )
+                    {
+                        i.remove(it)
+                    }
+                }
+                Log.d("MUTUABLELIST2", i.toString())
                 adapter = BLEServiceAdapter(
                     this,
-                    it.map { service ->
-                        BLEService(service.uuid.toString(), service.characteristics)
-                    }.toMutableList(),
+                    i.map {service -> BLEService(service.uuid.toString(), service.characteristics) }
+                    .toMutableList(),
                     { characteristic -> gatt.readCharacteristic(characteristic) },
                     { characteristic -> writeIntoCharacteristic(gatt, characteristic) },
                     { characteristic, enable ->
@@ -182,4 +199,3 @@ class BLEDeviceActivity : AppCompatActivity() {
         bluetoothGatt = null
     }
 }
-

@@ -26,13 +26,16 @@ class BLEServiceAdapter(
     private val serviceList: MutableList<BLEService>,
     private val readCharacteristicCallback: (BluetoothGattCharacteristic) -> Unit,
     private val writeCharacteristicCallback: (BluetoothGattCharacteristic) -> Unit,
-    private val notifyCharacteristicCallback: (BluetoothGattCharacteristic, Boolean) -> Unit
-) :
-    ExpandableRecyclerViewAdapter<BLEServiceAdapter.ServiceViewHolder, BLEServiceAdapter.CharacteristicViewHolder>(
-        serviceList
-    ) {
+    private val notifyCharacteristicCallback: (BluetoothGattCharacteristic, Boolean) -> Unit ) :
+    ExpandableRecyclerViewAdapter<BLEServiceAdapter.ServiceViewHolder, BLEServiceAdapter.CharacteristicViewHolder>(serviceList)
+{
 
-    class ServiceViewHolder(itemView: View) : GroupViewHolder(itemView) {
+    val UuidWanted = "00001800-0000-1000-8000-00805f9b34fb"
+
+
+
+    class ServiceViewHolder(itemView: View) : GroupViewHolder(itemView)
+    {
         val serviceName: TextView = itemView.serviceName
         val serviceUuid: TextView = itemView.serviceUuid
     }
@@ -62,40 +65,56 @@ class BLEServiceAdapter(
     override fun onBindGroupViewHolder(holder: ServiceViewHolder, flatPosition: Int, group: ExpandableGroup<*>)
     {
         val title = BLEUUIDAttributes.getBLEAttributeFromUUID(group.title).title
-        holder.serviceName.text = title
-        holder.serviceUuid.text = group.title
+
+        if (UuidWanted == group.title )
+        {
+            holder.serviceName.text = title
+            holder.serviceUuid.text = group.title
+        }
     }
 
     @RequiresApi(Build.VERSION_CODES.JELLY_BEAN_MR2)
     override fun onBindChildViewHolder(holder: CharacteristicViewHolder, flatPosition: Int, group: ExpandableGroup<*>, childIndex: Int)
     {
-        val characteristic = (group.items[childIndex] as BluetoothGattCharacteristic)
-        val title = BLEUUIDAttributes.getBLEAttributeFromUUID(characteristic.uuid.toString()).title
 
-        val uuidMessage = "UUID : ${characteristic.uuid}"
-        holder.characteristicUuid.text = uuidMessage
+        if (UuidWanted == group.title ) {
 
-        holder.characteristicName.text = title
-        val properties = arrayListOf<String>()
+            val characteristic = (group.items[childIndex] as BluetoothGattCharacteristic)
+            val title =
+                BLEUUIDAttributes.getBLEAttributeFromUUID(characteristic.uuid.toString()).title
 
-        addPropertyFromCharacteristic(characteristic, properties,"Lecture",
-            BluetoothGattCharacteristic.PROPERTY_READ, holder.characteristicReadAction,
-            readCharacteristicCallback)
+            val uuidMessage = "UUID : ${characteristic.uuid}"
+            holder.characteristicUuid.text = uuidMessage
 
-        addPropertyFromCharacteristic(characteristic, properties,"Ecrire",
-            (BluetoothGattCharacteristic.PROPERTY_WRITE or BluetoothGattCharacteristic.PROPERTY_WRITE_NO_RESPONSE),
-            holder.characteristicWriteAction, writeCharacteristicCallback)
+            holder.characteristicName.text = title
+            val properties = arrayListOf<String>()
 
-        addPropertyNotificationFromCharacteristic(characteristic, properties, holder.characteristicNotifyAction,
-            notifyCharacteristicCallback)
+            addPropertyFromCharacteristic(
+                characteristic, properties, "Lecture",
+                BluetoothGattCharacteristic.PROPERTY_READ, holder.characteristicReadAction,
+                readCharacteristicCallback
+            )
 
-        val proprietiesMessage = "Proprietés : ${properties.joinToString()}"
-        holder.characteristicProperties.text = proprietiesMessage
-        characteristic.value?.let {
-            val hex = it.joinToString("") { byte -> "%02x".format(byte) }.toUpperCase(Locale.FRANCE)
-            val value = "Valeur : ${String(it)} Hex : 0x$hex"
-            holder.characteristicValue.visibility = View.VISIBLE
-            holder.characteristicValue.text = value
+            addPropertyFromCharacteristic(
+                characteristic, properties, "Ecrire",
+                (BluetoothGattCharacteristic.PROPERTY_WRITE or BluetoothGattCharacteristic.PROPERTY_WRITE_NO_RESPONSE),
+                holder.characteristicWriteAction, writeCharacteristicCallback
+            )
+
+            addPropertyNotificationFromCharacteristic(
+                characteristic, properties, holder.characteristicNotifyAction,
+                notifyCharacteristicCallback
+            )
+
+            val proprietiesMessage = "Proprietés : ${properties.joinToString()}"
+            holder.characteristicProperties.text = proprietiesMessage
+            characteristic.value?.let {
+                val hex =
+                    it.joinToString("") { byte -> "%02x".format(byte) }.toUpperCase(Locale.FRANCE)
+                val value = "Valeur : ${String(it)} Hex : 0x$hex"
+                holder.characteristicValue.visibility = View.VISIBLE
+                holder.characteristicValue.text = value
+            }
         }
     }
 
@@ -157,6 +176,7 @@ class BLEServiceAdapter(
     }
 
     fun updateFromChangedCharacteristic(characteristic: BluetoothGattCharacteristic?) {
+
         serviceList.forEach {
             val index = it.items.indexOf(characteristic)
             if (index != -1) {

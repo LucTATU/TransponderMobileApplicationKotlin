@@ -1,9 +1,8 @@
 <resources>
-    <string name="app_name">My Application</string>
-    <string name="appName">KARTING APP</string>
+    <string name="app_name">KARTING APP</string>
     <string name="register">S\'INSCRIRE</string>
     <string name="login">SE CONNECTER</string>
-    <string name="bleConnexion">CONNEXION BLE-KART</string>
+    <string name="bleConnexion">CONNEXION \n BLE-KART</string>
     <string name="save">SAVE</string>
     <string name="pseudo">Pseudo</string>
     <string name="email">Email</string>

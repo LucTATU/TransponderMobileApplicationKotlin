@@ -23,6 +23,7 @@ import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.activity_b_l_e_scan.*
 
+
 @RequiresApi(Build.VERSION_CODES.JELLY_BEAN_MR2)
 class BLEScanActivity : AppCompatActivity() {
 
@@ -118,7 +119,6 @@ class BLEScanActivity : AppCompatActivity() {
         }
     }
 
-    @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     private fun scanLeDeviceWithPermission(enable: Boolean) {
         if (ActivityCompat.checkSelfPermission(
                 this,

@@ -10,7 +10,6 @@ import androidx.annotation.RequiresApi
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.activity_b_l_e_scan_cell.view.*
 
-
 class BLEScanAdapter(private val scanResults: ArrayList<ScanResult>, val deviceClickListener: (BluetoothDevice) -> Unit) :
     RecyclerView.Adapter<BLEScanAdapter.BLEScanViewHolder>() {
 

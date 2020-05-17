@@ -3,7 +3,6 @@ package com.example.myapplication
 import android.bluetooth.BluetoothProfile
 import androidx.annotation.StringRes
 
-
 enum class BLEConnexionState (val state: Int,@StringRes val text: Int) {
     STATE_CONNECTING(BluetoothProfile.STATE_CONNECTING, R.string.ble_device_status_connecting),
     STATE_CONNECTED(BluetoothProfile.STATE_CONNECTED, R.string.ble_device_status_connected),
