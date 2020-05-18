@@ -68,7 +68,7 @@
             android:layout_gravity="center"
             android:gravity="center"
             android:layout_weight="2"
-            android:text="HEURE"
+            android:text="TIME"
             android:textSize="30sp"
             android:textStyle="bold" />
     </LinearLayout>

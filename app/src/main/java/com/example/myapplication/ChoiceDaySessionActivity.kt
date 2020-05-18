@@ -19,7 +19,7 @@ class ChoiceDaySessionActivity: AppCompatActivity() {
 
         setContentView(R.layout.activity_choice_day_session);
 
-        OnClickDate()
+        onClickDate()
 
         btn_confirm.setOnClickListener{
             val intent = Intent(this, SessionSelectionActivity::class.java)
@@ -28,14 +28,14 @@ class ChoiceDaySessionActivity: AppCompatActivity() {
         }
 
         btn_logout.setOnClickListener {
-            Toast.makeText(applicationContext, "Déconnecté", Toast.LENGTH_SHORT).show()
+            Toast.makeText(applicationContext, getString(R.string.toast_disconnected), Toast.LENGTH_SHORT).show()
             this.finish()
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
         }
     }
 
-    private fun OnClickDate(){
+    private fun onClickDate(){
         val datePicker = findViewById<DatePicker>(R.id.date_Picker)
         val today = Calendar.getInstance()
         datePicker.init(today.get(Calendar.YEAR), today.get(Calendar.MONTH),

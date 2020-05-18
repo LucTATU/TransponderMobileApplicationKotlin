@@ -16,11 +16,14 @@ import kotlinx.android.synthetic.main.activity_b_l_e_device.*
 import java.util.Timer
 import java.util.TimerTask
 
+
 class BLEDeviceActivity : AppCompatActivity() {
 
     private var bluetoothGatt: BluetoothGatt? = null
     private lateinit var adapter: BLEServiceAdapter
     private var timer: Timer? = null
+
+    private val uuidServiceWanted = "00001800-0000-1000-8000-00805f9b34fb"
 
     @RequiresApi(Build.VERSION_CODES.JELLY_BEAN_MR2)
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -86,13 +89,14 @@ class BLEDeviceActivity : AppCompatActivity() {
 
     @RequiresApi(Build.VERSION_CODES.JELLY_BEAN_MR2)
     private fun onServicesDiscovered(gatt: BluetoothGatt?) {
+
         gatt?.services?.let {
             runOnUiThread {
                 adapter = BLEServiceAdapter(
                     this,
-                    it.map { service ->
-                        BLEService(service.uuid.toString(), service.characteristics)
-                    }.toMutableList(),
+                    it.filter { it.uuid.toString() == uuidServiceWanted }
+                        .map { service -> BLEService(service.uuid.toString(), service.characteristics)}
+                        .toMutableList(),
                     { characteristic -> gatt.readCharacteristic(characteristic) },
                     { characteristic -> writeIntoCharacteristic(gatt, characteristic) },
                     { characteristic, enable ->
@@ -182,4 +186,3 @@ class BLEDeviceActivity : AppCompatActivity() {
         bluetoothGatt = null
     }
 }
-

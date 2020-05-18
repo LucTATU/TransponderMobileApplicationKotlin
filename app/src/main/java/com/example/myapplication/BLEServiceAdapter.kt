@@ -78,22 +78,22 @@ class BLEServiceAdapter(
         holder.characteristicName.text = title
         val properties = arrayListOf<String>()
 
-        addPropertyFromCharacteristic(characteristic, properties,"Lecture",
+        addPropertyFromCharacteristic(characteristic, properties,"Read",
             BluetoothGattCharacteristic.PROPERTY_READ, holder.characteristicReadAction,
             readCharacteristicCallback)
 
-        addPropertyFromCharacteristic(characteristic, properties,"Ecrire",
+        addPropertyFromCharacteristic(characteristic, properties,"Write",
             (BluetoothGattCharacteristic.PROPERTY_WRITE or BluetoothGattCharacteristic.PROPERTY_WRITE_NO_RESPONSE),
             holder.characteristicWriteAction, writeCharacteristicCallback)
 
         addPropertyNotificationFromCharacteristic(characteristic, properties, holder.characteristicNotifyAction,
             notifyCharacteristicCallback)
 
-        val proprietiesMessage = "Proprietés : ${properties.joinToString()}"
+        val proprietiesMessage = "Property : ${properties.joinToString()}"
         holder.characteristicProperties.text = proprietiesMessage
         characteristic.value?.let {
             val hex = it.joinToString("") { byte -> "%02x".format(byte) }.toUpperCase(Locale.FRANCE)
-            val value = "Valeur : ${String(it)} Hex : 0x$hex"
+            val value = "Value : ${String(it)} Hex : 0x$hex"
             holder.characteristicValue.visibility = View.VISIBLE
             holder.characteristicValue.text = value
         }
@@ -127,7 +127,7 @@ class BLEServiceAdapter(
         propertyCallBack: (BluetoothGattCharacteristic, Boolean) -> Unit
     ) {
         if ((characteristic.properties and BluetoothGattCharacteristic.PROPERTY_NOTIFY) != 0) {
-            properties.add("Notifier")
+            properties.add("Notify")
             propertyAction.isEnabled = true
             propertyAction.alpha = 1f
             val isNotificationEnable = characteristic.descriptors.any {
