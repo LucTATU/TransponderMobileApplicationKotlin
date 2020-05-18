@@ -1,24 +1,20 @@
-package com.example.myapplication
+package fr.tatu.kartingapp
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.os.Handler
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.FirebaseDatabase
 import kotlinx.android.synthetic.main.activity_session_selection.*
 import android.util.Log
-import android.view.View
-import android.widget.Toast
 import androidx.recyclerview.widget.DividerItemDecoration
+import com.example.myapplication.R
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.ValueEventListener
 import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.Item
 import com.xwray.groupie.ViewHolder
-import kotlinx.android.synthetic.main.activity_choice_day_session.*
 import kotlinx.android.synthetic.main.sessions_row.view.*
-import kotlin.concurrent.timerTask
 
 class SessionSelectionActivity : AppCompatActivity() {
 
@@ -65,7 +61,11 @@ class SessionSelectionActivity : AppCompatActivity() {
                         Log.d("NewMessages", it.toString())
                         val data = it.getValue(IDSession::class.java)
                         if (data != null) {
-                            adapter.add(SessionItemID(data))
+                            adapter.add(
+                                SessionItemID(
+                                    data
+                                )
+                            )
                         }
                     }
 

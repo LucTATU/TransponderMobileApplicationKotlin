@@ -16,21 +16,21 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".BLEDeviceActivity" />
-        <activity android:name=".BLEScanActivity" />
-        <activity android:name=".InfosKartActivity" />
-        <activity android:name=".SessionDuActivity" />
-        <activity android:name=".SessionSelectionActivity" />
-        <activity android:name=".ChoiceDaySessionActivity" />
-        <activity android:name=".MainActivity">
+        <activity android:name="fr.tatu.kartingapp.BLEDeviceActivity" />
+        <activity android:name="fr.tatu.kartingapp.BLEScanActivity" />
+        <activity android:name="fr.tatu.kartingapp.InfosKartActivity" />
+        <activity android:name="fr.tatu.kartingapp.SessionDuActivity" />
+        <activity android:name="fr.tatu.kartingapp.SessionSelectionActivity" />
+        <activity android:name="fr.tatu.kartingapp.ChoiceDaySessionActivity" />
+        <activity android:name="fr.tatu.kartingapp.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".LoginActivity" />
-        <activity android:name=".RegisterActivity" />
+        <activity android:name="fr.tatu.kartingapp.LoginActivity" />
+        <activity android:name="fr.tatu.kartingapp.RegisterActivity" />
     </application>
 
 </manifest>

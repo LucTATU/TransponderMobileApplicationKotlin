@@ -10,7 +10,7 @@
       "client_info": {
         "mobilesdk_app_id": "1:957900548104:android:d121a47494e153881189bd",
         "android_client_info": {
-          "package_name": "com.example.myapplication"
+          "package_name": "fr.tatu.kartingapp"
         }
       },
       "oauth_client": [

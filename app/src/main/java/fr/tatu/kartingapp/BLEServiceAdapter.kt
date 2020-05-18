@@ -1,10 +1,9 @@
-package com.example.myapplication
+package fr.tatu.kartingapp
 
 import android.bluetooth.BluetoothGattCharacteristic
 import android.bluetooth.BluetoothGattDescriptor
 import android.content.Context
 import android.os.Build
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,6 +11,7 @@ import android.widget.Button
 import android.widget.TextView
 import androidx.annotation.RequiresApi
 import androidx.core.content.ContextCompat
+import com.example.myapplication.R
 import com.thoughtbot.expandablerecyclerview.ExpandableRecyclerViewAdapter
 import com.thoughtbot.expandablerecyclerview.models.ExpandableGroup
 import com.thoughtbot.expandablerecyclerview.viewholders.ChildViewHolder
@@ -51,17 +51,29 @@ class BLEServiceAdapter(
     override fun onCreateGroupViewHolder(parent: ViewGroup, viewType: Int): ServiceViewHolder =
         ServiceViewHolder(
             LayoutInflater.from(parent.context)
-                .inflate(R.layout.activity_b_l_e_device_service_cell, parent, false)
+                .inflate(
+                    R.layout.activity_b_l_e_device_service_cell,
+                    parent,
+                    false
+                )
         )
 
     override fun onCreateChildViewHolder(parent: ViewGroup, viewType: Int):
-            CharacteristicViewHolder = CharacteristicViewHolder(LayoutInflater.from(parent.context)
-                .inflate(R.layout.activity_b_l_e_device_characteristic_cell, parent, false)
+            CharacteristicViewHolder =
+        CharacteristicViewHolder(
+            LayoutInflater.from(parent.context)
+                .inflate(
+                    R.layout.activity_b_l_e_device_characteristic_cell,
+                    parent,
+                    false
+                )
         )
 
     override fun onBindGroupViewHolder(holder: ServiceViewHolder, flatPosition: Int, group: ExpandableGroup<*>)
     {
-        val title = BLEUUIDAttributes.getBLEAttributeFromUUID(group.title).title
+        val title = BLEUUIDAttributes.getBLEAttributeFromUUID(
+            group.title
+        ).title
         holder.serviceName.text = title
         holder.serviceUuid.text = group.title
     }
@@ -70,7 +82,9 @@ class BLEServiceAdapter(
     override fun onBindChildViewHolder(holder: CharacteristicViewHolder, flatPosition: Int, group: ExpandableGroup<*>, childIndex: Int)
     {
         val characteristic = (group.items[childIndex] as BluetoothGattCharacteristic)
-        val title = BLEUUIDAttributes.getBLEAttributeFromUUID(characteristic.uuid.toString()).title
+        val title = BLEUUIDAttributes.getBLEAttributeFromUUID(
+            characteristic.uuid.toString()
+        ).title
 
         val uuidMessage = "UUID : ${characteristic.uuid}"
         holder.characteristicUuid.text = uuidMessage
@@ -148,7 +162,9 @@ class BLEServiceAdapter(
                         android.R.color.transparent
                     )
                 )
-                propertyAction.setTextColor(ContextCompat.getColor(context, R.color.colorPrimary))
+                propertyAction.setTextColor(ContextCompat.getColor(context,
+                    R.color.colorPrimary
+                ))
             }
             propertyAction.setOnClickListener {
                 propertyCallBack.invoke(characteristic, !isNotificationEnable)
