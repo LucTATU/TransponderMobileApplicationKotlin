@@ -1,7 +1,6 @@
-package com.example.myapplication
+package fr.tatu.kartingapp
 
 import android.bluetooth.BluetoothGattCharacteristic
-import android.bluetooth.BluetoothGattService
 import com.thoughtbot.expandablerecyclerview.models.ExpandableGroup
 
 

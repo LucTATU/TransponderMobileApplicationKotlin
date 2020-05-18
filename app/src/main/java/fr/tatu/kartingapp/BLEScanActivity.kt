@@ -1,4 +1,4 @@
-package com.example.myapplication
+package fr.tatu.kartingapp
 
 import android.Manifest
 import android.bluetooth.BluetoothAdapter
@@ -21,6 +21,7 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.myapplication.R
 import kotlinx.android.synthetic.main.activity_b_l_e_scan.*
 
 
@@ -77,7 +78,9 @@ class BLEScanActivity : AppCompatActivity() {
             DividerItemDecoration(this, LinearLayoutManager.VERTICAL)
         )
 
-        itemsswipetorefresh.setColorSchemeColors(ContextCompat.getColor(this, R.color.colorPrimary))
+        itemsswipetorefresh.setColorSchemeColors(ContextCompat.getColor(this,
+            R.color.colorPrimary
+        ))
         itemsswipetorefresh.setOnRefreshListener {
             scanLeDeviceWithPermission(false)
             scanLeDeviceWithPermission(true)
@@ -142,7 +145,9 @@ class BLEScanActivity : AppCompatActivity() {
                 handler.postDelayed({
                     mScanning = false
                     stopScan(leScanCallback)
-                }, SCAN_PERIOD)
+                },
+                    SCAN_PERIOD
+                )
                 mScanning = true
                 startScan(leScanCallback)
                 adapter.clearResults()

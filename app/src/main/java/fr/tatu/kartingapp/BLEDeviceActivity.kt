@@ -1,4 +1,4 @@
-package com.example.myapplication
+package fr.tatu.kartingapp
 
 import android.bluetooth.*
 import android.os.Build
@@ -12,6 +12,7 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.myapplication.R
 import kotlinx.android.synthetic.main.activity_b_l_e_device.*
 import java.util.Timer
 import java.util.TimerTask
@@ -23,7 +24,7 @@ class BLEDeviceActivity : AppCompatActivity() {
     private lateinit var adapter: BLEServiceAdapter
     private var timer: Timer? = null
 
-    private val uuidServiceWanted = "00001800-0000-1000-8000-00805f9b34fb"
+    private val uuidServiceWanted = "6e400001-b5a3-f393-e0a9-e50e24dcca9e" //UART Bluefruit LE Uuid
 
     @RequiresApi(Build.VERSION_CODES.JELLY_BEAN_MR2)
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -73,7 +74,9 @@ class BLEDeviceActivity : AppCompatActivity() {
 
     @RequiresApi(Build.VERSION_CODES.JELLY_BEAN_MR2)
     private fun onConnectionStateChange(newState: Int, gatt: BluetoothGatt?) {
-        BLEConnexionState.getBLEConnexionStateFromState(newState)?.let {
+        BLEConnexionState.getBLEConnexionStateFromState(
+            newState
+        )?.let {
             runOnUiThread {
                 progressBarService.visibility = View.INVISIBLE
                 divider.visibility = View.VISIBLE
@@ -95,7 +98,12 @@ class BLEDeviceActivity : AppCompatActivity() {
                 adapter = BLEServiceAdapter(
                     this,
                     it.filter { it.uuid.toString() == uuidServiceWanted }
-                        .map { service -> BLEService(service.uuid.toString(), service.characteristics)}
+                        .map { service ->
+                            BLEService(
+                                service.uuid.toString(),
+                                service.characteristics
+                            )
+                        }
                         .toMutableList(),
                     { characteristic -> gatt.readCharacteristic(characteristic) },
                     { characteristic -> writeIntoCharacteristic(gatt, characteristic) },

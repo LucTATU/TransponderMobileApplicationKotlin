@@ -1,20 +1,16 @@
-package com.example.myapplication
+package fr.tatu.kartingapp
 
 import android.app.Activity
 import android.content.Intent
-import android.graphics.ImageDecoder
-import android.graphics.ImageDecoder.createSource
-import android.graphics.drawable.BitmapDrawable
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
-import android.os.PersistableBundle
-import android.provider.MediaStore
 import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
+import com.example.myapplication.R
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.storage.FirebaseStorage
@@ -108,7 +104,11 @@ class RegisterActivity: AppCompatActivity(){
         val uid = FirebaseAuth.getInstance().uid ?: "" //check if uid is known, if not => "" as default value
         val ref = FirebaseDatabase.getInstance().getReference("/users/$uid")
 
-        val user = User(uid, pseudo_editText_register.text.toString(), profileImageUrl)
+        val user = User(
+            uid,
+            pseudo_editText_register.text.toString(),
+            profileImageUrl
+        )
 
         ref.setValue(user)
             .addOnSuccessListener {

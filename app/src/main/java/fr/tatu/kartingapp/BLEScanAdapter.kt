@@ -1,4 +1,4 @@
-package com.example.myapplication
+package fr.tatu.kartingapp
 
 import android.bluetooth.BluetoothDevice
 import android.bluetooth.le.ScanResult
@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.RequiresApi
 import androidx.recyclerview.widget.RecyclerView
+import com.example.myapplication.R
 import kotlinx.android.synthetic.main.activity_b_l_e_scan_cell.view.*
 
 class BLEScanAdapter(private val scanResults: ArrayList<ScanResult>, val deviceClickListener: (BluetoothDevice) -> Unit) :

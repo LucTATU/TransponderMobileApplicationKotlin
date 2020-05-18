@@ -1,4 +1,4 @@
-package com.example.myapplication
+package fr.tatu.kartingapp
 
 import android.content.Intent
 import android.os.Build
@@ -7,6 +7,7 @@ import android.widget.DatePicker
 import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
+import com.example.myapplication.R
 import kotlinx.android.synthetic.main.activity_choice_day_session.*
 import java.util.*
 
