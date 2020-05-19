@@ -1,0 +1,283 @@
+{
+  "karting" : {
+    "Karts" : [ {
+      "IDKart" : 0,
+      "Sessions" : [ {
+        "DateSession" : "20/4/2020",
+        "IDSession" : 0,
+        "Position" : 2,
+        "Time" : {
+          "AvgTimeLap" : 8.58,
+          "BestTimeLap" : 7.54,
+          "TotalTime" : 25.28,
+          "WorstTimeLap" : 14.34
+        },
+        "TimeSession" : "3:33PM",
+        "Vitesses" : {
+          "VitesseMax" : 54.5,
+          "VitesseMin" : 0,
+          "VitesseMoy" : 50.6
+        }
+      }, {
+        "DateSession" : "1/5/2020",
+        "IDSession" : 1,
+        "Position" : 1,
+        "Time" : {
+          "AvgTimeLap" : 8.58,
+          "BestTimeLap" : 7.54,
+          "TotalTime" : 25.28,
+          "WorstTimeLap" : 14.34
+        },
+        "TimeSession" : "10:34AM",
+        "Vitesses" : {
+          "VitesseMax" : 54.5,
+          "VitesseMin" : 0,
+          "VitesseMoy" : 50.6
+        }
+      }, {
+        "DateSession" : "20/4/2020",
+        "IDSession" : 2,
+        "Position" : 2,
+        "Time" : {
+          "AvgTimeLap" : 8.58,
+          "BestTimeLap" : 7.54,
+          "TotalTime" : 25.28,
+          "WorstTimeLap" : 14.34
+        },
+        "TimeSession" : "3:58PM",
+        "Vitesses" : {
+          "VitesseMax" : 54.5,
+          "VitesseMin" : 0,
+          "VitesseMoy" : 50.6
+        }
+      } ]
+    }, {
+      "IDKart" : 1,
+      "Sessions" : [ {
+        "DateSession" : "20/4/2020",
+        "IDSession" : 0,
+        "Position" : 2,
+        "Time" : {
+          "AvgTimeLap" : 8.58,
+          "BestTimeLap" : 7.54,
+          "TotalTime" : 25.28,
+          "WorstTimeLap" : 14.34
+        },
+        "TimeSession" : "3:33PM",
+        "Vitesses" : {
+          "VitesseMax" : 54.5,
+          "VitesseMin" : 0,
+          "VitesseMoy" : 50.6
+        }
+      }, {
+        "DateSession" : "1/5/2020",
+        "IDSession" : 1,
+        "Position" : 2,
+        "Time" : {
+          "AvgTimeLap" : 8.58,
+          "BestTimeLap" : 7.54,
+          "TotalTime" : 25.28,
+          "WorstTimeLap" : 14.34
+        },
+        "TimeSession" : "10:34AM",
+        "Vitesses" : {
+          "VitesseMax" : 54.5,
+          "VitesseMin" : 0,
+          "VitesseMoy" : 50.6
+        }
+      }, {
+        "DateSession" : "20/4/2020",
+        "IDSession" : 2,
+        "Position" : 2,
+        "Time" : {
+          "AvgTimeLap" : 8.58,
+          "BestTimeLap" : 7.54,
+          "TotalTime" : 25.28,
+          "WorstTimeLap" : 14.34
+        },
+        "TimeSession" : "3:58PM",
+        "Vitesses" : {
+          "VitesseMax" : 54.5,
+          "VitesseMin" : 0,
+          "VitesseMoy" : 50.6
+        }
+      } ]
+    }, {
+      "IDKart" : 2,
+      "Sessions" : [ {
+        "DateSession" : "20/4/2020",
+        "IDSession" : 0,
+        "Position" : 2,
+        "Time" : {
+          "AvgTimeLap" : 8.58,
+          "BestTimeLap" : 7.54,
+          "TotalTime" : 25.28,
+          "WorstTimeLap" : 14.34
+        },
+        "TimeSession" : "3:33PM",
+        "Vitesses" : {
+          "VitesseMax" : 54.5,
+          "VitesseMin" : 0,
+          "VitesseMoy" : 50.6
+        }
+      }, {
+        "DateSession" : "1/5/2020",
+        "IDSession" : 1,
+        "Position" : 3,
+        "Time" : {
+          "AvgTimeLap" : 8.58,
+          "BestTimeLap" : 7.54,
+          "TotalTime" : 25.28,
+          "WorstTimeLap" : 14.34
+        },
+        "TimeSession" : "10:34AM",
+        "Vitesses" : {
+          "VitesseMax" : 54.5,
+          "VitesseMin" : 0,
+          "VitesseMoy" : 50.6
+        }
+      }, {
+        "DateSession" : "20/4/2020",
+        "IDSession" : 2,
+        "Position" : 2,
+        "Time" : {
+          "AvgTimeLap" : 8.58,
+          "BestTimeLap" : 7.54,
+          "TotalTime" : 25.28,
+          "WorstTimeLap" : 14.34
+        },
+        "TimeSession" : "3:58PM",
+        "Vitesses" : {
+          "VitesseMax" : 54.5,
+          "VitesseMin" : 0,
+          "VitesseMoy" : 50.6
+        }
+      } ]
+    } ],
+    "SESSIONS" : [ {
+      "CLASSEMENT" : [ {
+        "IDKART" : 2,
+        "NAMEKART" : "KART2",
+        "POSITION" : 1
+      }, {
+        "IDKART" : 0,
+        "NAMEKART" : "KART1",
+        "POSITION" : 2
+      }, {
+        "IDKART" : 1,
+        "NAMEKART" : "KART2",
+        "POSITION" : 3
+      } ],
+      "DATESESSION" : "20/4/2020",
+      "HEURESESSION" : "3:33PM",
+      "IDSESSION" : 0
+    }, {
+      "CLASSEMENT" : [ {
+        "IDKART" : 0,
+        "NAMEKART" : "KART1",
+        "POSITION" : 1
+      }, {
+        "IDKART" : 1,
+        "NAMEKART" : "KART2",
+        "POSITION" : 2
+      }, {
+        "IDKART" : 2,
+        "NAMEKART" : "KART3",
+        "POSITION" : 3
+      } ],
+      "DATESESSION" : "1/5/2020",
+      "HEURESESSION" : "10:34AM",
+      "IDSESSION" : 1
+    }, {
+      "CLASSEMENT" : [ {
+        "IDKART" : 1,
+        "NAMEKART" : "KART2",
+        "POSITION" : 1
+      }, {
+        "IDKART" : 0,
+        "NAMEKART" : "KART1",
+        "POSITION" : 2
+      }, {
+        "IDKART" : 2,
+        "NAMEKART" : "KART3",
+        "POSITION" : 3
+      } ],
+      "DATESESSION" : "20/4/2020",
+      "HEURESESSION" : "3:58PM",
+      "IDSESSION" : 2
+    } ],
+    "sensor" : {
+      "dht" : {
+        "-M5wXqmfM3glebCg5aTQ" : {
+          "x" : 9,
+          "y" : 0,
+          "z" : 5
+        },
+        "-M5wXsOtwyCDhLRt0Pn3" : {
+          "x" : 9,
+          "y" : 0,
+          "z" : 10
+        },
+        "-M5wXu-xySZ_iCdJzKqw" : {
+          "x" : 9,
+          "y" : 10,
+          "z" : 6
+        },
+        "-M5wXvcBkBgChYXNVf3h" : {
+          "x" : 8,
+          "y" : 5,
+          "z" : 2
+        },
+        "-M5wXxERyDVLmmeo6qbD" : {
+          "x" : 0,
+          "y" : 2,
+          "z" : 1
+        },
+        "-M5wXyqXornY2JEaF4RP" : {
+          "x" : 2,
+          "y" : 1,
+          "z" : 7
+        },
+        "-M5wY-SuhohFArayVfjH" : {
+          "x" : 3,
+          "y" : 1,
+          "z" : 10
+        },
+        "-M5wY13y_oKtp-ANpX-U" : {
+          "x" : 2,
+          "y" : 5,
+          "z" : 10
+        },
+        "-M5wY2gMKVAb2dz-6Wji" : {
+          "x" : 10,
+          "y" : 10,
+          "z" : 1
+        },
+        "-M5wY4IAyjpiVeGjBS8h" : {
+          "x" : 7,
+          "y" : 8,
+          "z" : 10
+        }
+      }
+    },
+    "users" : {
+      "zfunEeloz7enyOnGbqjKPfwyyx82" : {
+        "profileImageUrl" : "https://firebasestorage.googleapis.com/v0/b/kartingapp-9eeae.appspot.com/o/images%2F6b97a812-e7bb-4599-aa5e-618ba3285df9?alt=media&token=36ce0065-5257-4b8a-aac7-02e64f4a5777",
+        "pseudo" : "popo",
+        "uid" : "zfunEeloz7enyOnGbqjKPfwyyx82"
+      }
+    }
+  },
+  "users" : {
+    "ZhFTGZlb4vMlerPZdJe0GIEbLBq1" : {
+      "profileImageUrl" : "https://firebasestorage.googleapis.com/v0/b/kartingapp-9eeae.appspot.com/o/images%2F8c49a189-90dd-4659-a423-1a899212914c?alt=media&token=b8df4052-531d-4072-92ac-cdc1ad20f8ec",
+      "pseudo" : "kartA",
+      "uid" : "ZhFTGZlb4vMlerPZdJe0GIEbLBq1"
+    },
+    "hdWijMVAQZPai2Z4XZhZJwu26wv2" : {
+      "profileImageUrl" : "https://firebasestorage.googleapis.com/v0/b/kartingapp-9eeae.appspot.com/o/images%2F6d45cfa2-473f-48fb-92dc-f4b1cf7bb0bd?alt=media&token=50ab3411-49ed-4178-9346-e51927a67a4b",
+      "pseudo" : "kart",
+      "uid" : "hdWijMVAQZPai2Z4XZhZJwu26wv2"
+    }
+  }
+}
