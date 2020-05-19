@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="fr.tatu.kartingapp.BLEDeviceActivity">
+    tools:context="fr.tatu.kartingapp.ble.BLEDeviceActivity">
     <TextView
         android:id="@+id/deviceName"
         android:layout_width="wrap_content"
